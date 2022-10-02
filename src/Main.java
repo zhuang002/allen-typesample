@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Main {
@@ -9,8 +11,117 @@ public class Main {
 		//doubleSample();
 		//booleanSample();
 		//arraySample();
-		stringSample();
-		//arrayListSample();*/
+		//stringSample();
+		arrayListSample();
+	}
+
+	private static void arrayListSample() {
+		// TODO Auto-generated method stub
+		int[] ari = new int[100];
+		int[] ari2 = {1,2,3,4,5};
+		System.out.println(ari.length);
+		
+		ArrayList<Integer> ali = new ArrayList<>();
+		ali.add(1);
+		ali.add(2);
+		ali.add(3);
+		
+		
+		for (int i=0;i<ali.size();i++) {
+			System.out.print(ali.get(i)+ " ");
+		}
+		System.out.println();
+		
+		ali.remove(1);
+		//arraylist and arrys are iterable
+		for (int ele:ali) {
+			System.out.print(ele+" ");
+		}
+		System.out.println();
+		
+		ArrayList al = new ArrayList();
+		al.add(1);
+		al.add("a");
+		al.add(true);
+		
+		for (Object ele:al) {
+			System.out.print(ele+" ");
+		}
+		System.out.println();
+		
+		System.out.println(al.contains(1));
+		System.out.println(al.contains(2));
+		
+		al.remove("a");
+		for (Object ele:al) {
+			System.out.print(ele+" ");
+		}
+		System.out.println();
+		
+		al.add(1,"b");
+		al.add(1,"c");
+		al.add("b");
+		for (Object ele:al) {
+			System.out.print(ele+" ");
+		}
+		System.out.println();
+		
+		System.out.println(al.indexOf("b"));
+		System.out.println(al.lastIndexOf("b"));
+		
+		String s = "adfasfdaj;jkk;fa";
+		int idx = s.indexOf("fa");
+		while (idx>=0) {
+			System.out.print(idx+",");
+			idx = s.indexOf("fa", idx+1);
+		}
+		System.out.println();
+		
+		al.remove("b");
+		for (Object ele:al) {
+			System.out.print(ele+" ");
+		}
+		System.out.println();
+		
+		
+		ali.clear();
+		ali.add(8);
+		ali.add(7);
+		ali.add(15);
+		ali.add(11);
+		
+		for (int ele:ali) {
+			System.out.print(ele+" ");
+		}
+		System.out.println();
+		
+		Collections.sort(ali);
+		for (int ele:ali) {
+			System.out.print(ele+" ");
+		}
+		System.out.println();
+		
+		ArrayList<String> als = new ArrayList<>();
+		als.add("abc");
+		als.add("123");
+		als.add("ABC");
+		als.add("bbb");
+		for (String ele:als) {
+			System.out.print(ele+" ");
+		}
+		System.out.println();
+		
+		Collections.sort(als, Collections.reverseOrder());
+		for (String ele:als) {
+			System.out.print(ele+" ");
+		}
+		System.out.println();
+		
+		Collections.reverse(als);
+		for (String ele:als) {
+			System.out.print(ele+" ");
+		}
+		System.out.println();
 	}
 
 	private static void stringSample() {
@@ -49,6 +160,20 @@ public class Main {
 		
 		index = s.lastIndexOf("sa");
 		System.out.println("the last occurance of 'sa' is at "+index);
+		
+		/*
+		 *  int -- Integer
+		 *  char -- Character
+		 *  double -- Double
+		 *  boolean -- Boolean
+		 */
+		
+		int i = Integer.parseInt("123");
+		double d = Double.parseDouble("3.5");
+		boolean b = Boolean.parseBoolean("true");
+		
+		
+		
 		
 	}
 
