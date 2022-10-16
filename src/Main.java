@@ -12,7 +12,28 @@ public class Main {
 		//booleanSample();
 		//arraySample();
 		//stringSample();
-		arrayListSample();
+		//arrayListSample();
+		passByRefVal();
+	}
+
+	private static void passByRefVal() {
+		// TODO Auto-generated method stub
+		MyClass cls = new MyClass(3,"abc");
+		int a = 3;
+		String s = "abc";
+		
+		changeValue(cls, a, s);
+		System.out.println(cls.a + "," + cls.b +","+ a+","+s);
+		
+	}
+
+	private static void changeValue(MyClass pCls, Integer pa, String ps) {
+		// TODO Auto-generated method stub
+		pCls.a = 100;
+		pCls.b = "def";
+		
+		pa = 100;
+		ps = "def";
 	}
 
 	private static void arrayListSample() {
@@ -271,4 +292,14 @@ public class Main {
 		
 	}
 
+}
+
+class MyClass {
+	public int a;
+	public String b;
+	public MyClass(int i,String s) {
+		this.a = i;
+		this.b = s;
+	}
+	
 }
