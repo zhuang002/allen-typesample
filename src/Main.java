@@ -1,6 +1,11 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.Stack;
 
 public class Main {
 
@@ -13,7 +18,99 @@ public class Main {
 		//arraySample();
 		//stringSample();
 		//arrayListSample();
-		passByRefVal();
+		//passByRefVal();
+		//setSample();
+		//hashMapSample();
+		stackSample();
+		
+	}
+
+	private static void stackSample() {
+		// TODO Auto-generated method stub
+		Stack<String> stack = new Stack<>();
+		stack.add("Peter");
+		stack.add("David");
+		stack.add("Alice");
+		stack.add("Helen");
+		
+		System.out.println(stack);
+		
+		String top = stack.pop();
+		System.out.println("poped:"+top + " stack:" +stack);
+		
+		top = stack.peek();
+		System.out.println("poped:"+top + " stack:" +stack);
+		
+		
+		
+	}
+
+	private static void hashMapSample() {
+		// TODO Auto-generated method stub
+		HashMap<String, Human> map = new HashMap<>();
+		Human person1 = new Human("Peter", "Male", 12);
+		Human person2 = new Human("Allen", "Male", 17);
+		Human person3 = new Human("Helen", "Female", 18);
+		Human person4 = new Human("David", "Male", 16);
+		
+		map.put(person1.name, person1);
+		map.put(person2.name, person2);
+		map.put(person3.name, person3);
+		map.put(person4.name, person4);
+		
+		System.out.println(map.get("Peter"));
+		System.out.println(map.get("Derek"));
+		System.out.println(map.containsKey("Alice"));
+		
+		System.out.println("=================");
+		for (String key:map.keySet()) {
+			System.out.println(map.get(key));
+		}
+		
+		
+	}
+
+	private static void setSample() {
+		// TODO Auto-generated method stub
+		HashSet<Integer> iSet = new HashSet<>();
+		iSet.add(3);
+		iSet.add(4);
+		iSet.add(5);
+		iSet.add(6);
+		
+		Set<Integer> iSet2 = new HashSet<>();
+		iSet2.add(1);
+		iSet2.add(2);
+		iSet2.add(3);
+		iSet2.add(4);
+		
+		System.out.println(iSet.contains(1));
+		System.out.println(iSet.contains(3));
+		
+		System.out.println(iSet);
+		iSet.remove(3);
+		System.out.println(iSet);
+		iSet.remove(3);
+		System.out.println(iSet);
+		iSet.add(3);
+		iSet.add(3);
+		System.out.println(iSet);
+		
+		iSet.addAll(iSet2);
+		System.out.println(iSet);
+		
+		iSet.remove(1);
+		iSet.remove(2);
+		
+		iSet.retainAll(iSet2);
+		System.out.println(iSet);
+		
+		iSet.add(5);
+		iSet.add(6);
+		
+		iSet.removeAll(iSet2);
+		System.out.println(iSet);
+		
 	}
 
 	private static void passByRefVal() {
@@ -301,5 +398,60 @@ class MyClass {
 		this.a = i;
 		this.b = s;
 	}
+	
+}
+
+class Human {
+	String name;
+	String gender;
+	int age;
+	
+	public Human(String n, String g, int a) {
+		name = n;
+		gender = g;
+		age = a;
+	}
+
+	@Override
+	public String toString() {
+		return "Human [name=" + name + ", gender=" + gender + ", age=" + age + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + age;
+		result = prime * result + ((gender == null) ? 0 : gender.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Human other = (Human) obj;
+		if (age != other.age)
+			return false;
+		if (gender == null) {
+			if (other.gender != null)
+				return false;
+		} else if (!gender.equals(other.gender))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
+	}
+
+	
+	
 	
 }
